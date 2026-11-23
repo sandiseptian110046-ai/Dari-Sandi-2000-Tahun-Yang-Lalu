@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spesial Untukmu ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Menghubungkan ke file CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Latar Hati Melayang -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Kontrol Atas -->
+    <div class="top-controls">
+        <button class="icon-btn" id="musicBtn" onclick="toggleMusic()">
+            <span id="musicIcon">🎵</span> <span id="musicLabel">Putar Musik</span>
+        </button>
+        <button class="icon-btn" onclick="openModal()">
+            ✏️ Edit Pesan
+        </button>
+    </div>
+
+    <!-- Kartu Utama -->
+    <div class="card-container">
+        <!-- Indikator Slide -->
+        <div class="dots" id="dotsContainer">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <!-- SLIDE 1: Pembuka Amplop -->
+        <div class="slide active" id="slide-0">
+            <div class="illustration bounce-anim">
+                <svg viewBox="0 0 200 200" width="150" height="150">
+                    <rect x="25" y="65" width="150" height="100" rx="16" fill="#ff8fa3"/>
+                    <path d="M25 75 L100 125 L175 75 L175 155 Q175 165 165 165 L35 165 Q25 165 25 155 Z" fill="#ff758f"/>
+                    <path d="M25 75 L100 125 L175 75 Q175 65 165 65 L35 65 Q25 65 25 75 Z" fill="#ffb3c6"/>
+                    <path d="M100 112 C92 100, 75 103, 75 117 C75 130, 100 144, 100 144 C100 144, 125 130, 125 117 C125 103, 108 100, 100 112 Z" fill="#ff0a54" class="heartbeat-anim" style="transform-origin: 100px 125px;"/>
+                </svg>
+            </div>
+            <h1 id="title-0" class="wave-text">Hai Sayang! 💌</h1>
+            <div class="message-box" id="msg-0"></div>
+            <button class="btn-primary" onclick="nextSlide()">Buka Suratnya ✨</button>
+        </div>
+
+        <!-- SLIDE 2: Beruang Gemoy -->
+        <div class="slide" id="slide-1">
+            <div class="illustration wiggle-anim">
+                <svg viewBox="0 0 200 200" width="155" height="155">
+                    <circle cx="58" cy="58" r="22" fill="#a47148"/>
+                    <circle cx="58" cy="58" r="12" fill="#d4a373"/>
+                    <circle cx="142" cy="58" r="22" fill="#a47148"/>
+                    <circle cx="142" cy="58" r="12" fill="#d4a373"/>
+                    <ellipse cx="100" cy="102" rx="58" ry="52" fill="#bc8a5f"/>
+                    <ellipse cx="100" cy="115" rx="22" ry="17" fill="#faedcd"/>
+                    <ellipse cx="100" cy="108" rx="8" ry="5" fill="#432818"/>
+                    <path d="M93 118 Q100 125 107 118" stroke="#432818" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <circle cx="76" cy="95" r="5" fill="#2b190e"/>
+                    <circle cx="124" cy="95" r="5" fill="#2b190e"/>
+                    <ellipse cx="66" cy="107" rx="9" ry="5" fill="#ff8fa3" opacity="0.7"/>
+                    <ellipse cx="134" cy="107" rx="9" ry="5" fill="#ff8fa3" opacity="0.7"/>
+                    <path d="M100 142 C90 128, 70 132, 70 148 C70 163, 100 180, 100 180 C100 180, 130 163, 130 148 C130 132, 110 128, 100 142 Z" fill="#ff4d6d"/>
+                </svg>
+            </div>
+            <h1 id="title-1">Makasih Ya... 🧸</h1>
+            <div class="message-box" id="msg-1"></div>
+            <button class="btn-primary" onclick="nextSlide()">Lanjut Baca 👉</button>
+        </div>
+
+        <!-- SLIDE 3: Kelinci Gombal -->
+        <div class="slide" id="slide-2">
+            <div class="illustration bounce-anim">
+                <svg viewBox="0 0 200 200" width="155" height="155">
+                    <ellipse cx="76" cy="48" rx="14" ry="42" transform="rotate(-10 76 48)" fill="#ffffff" stroke="#ffccd5" stroke-width="3"/>
+                    <ellipse cx="76" cy="50" rx="7" ry="28" transform="rotate(-10 76 50)" fill="#ffb3c6"/>
+                    <ellipse cx="124" cy="48" rx="14" ry="42" transform="rotate(10 124 48)" fill="#ffffff" stroke="#ffccd5" stroke-width="3"/>
+                    <ellipse cx="124" cy="50" rx="7" ry="28" transform="rotate(10 124 50)" fill="#ffb3c6"/>
+                    <ellipse cx="100" cy="115" rx="55" ry="48" fill="#ffffff" stroke="#ffccd5" stroke-width="3"/>
+                    <circle cx="78" cy="108" r="5.5" fill="#590d22"/>
+                    <path d="M115 108 Q123 101 131 108" stroke="#590d22" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                    <polygon points="96,118 104,118 100,123" fill="#ff758f"/>
+                    <path d="M92 127 Q96 132 100 127 Q104 132 108 127" stroke="#590d22" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <ellipse cx="68" cy="120" rx="9" ry="5" fill="#ff8fa3" opacity="0.7"/>
+                    <ellipse cx="132" cy="120" rx="9" ry="5" fill="#ff8fa3" opacity="0.7"/>
+                </svg>
+            </div>
+            <h1 id="title-2">Fun Fact Hari Ini 🐰</h1>
+            <div class="message-box" id="msg-2"></div>
+            <button class="btn-primary" onclick="nextSlide()">Ada Pertanyaan Nih 🤔👉</button>
+        </div>
+
+        <!-- SLIDE 4: Interaktif Tombol Kabur -->
+        <div class="slide" id="slide-3">
+            <div class="illustration heartbeat-anim">
+                <svg viewBox="0 0 200 200" width="145" height="145">
+                    <path d="M100 55 C80 25, 30 35, 30 78 C30 118, 100 162, 100 162 C100 162, 170 118, 170 78 C170 35, 120 25, 100 55 Z" fill="#ff4d6d"/>
+                    <circle cx="78" cy="85" r="6" fill="#fff"/>
+                    <circle cx="122" cy="85" r="6" fill="#fff"/>
+                    <path d="M88 105 Q100 118 112 105" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h1 id="title-3">Jujur Ya... 🥺</h1>
+            <div class="message-box" id="msg-3" style="min-height: 55px; margin-bottom: 10px;"></div>
+            
+            <div class="choice-area" id="choiceArea">
+                <button class="btn-primary" id="yesBtn" onclick="acceptLove()">Sayang Banget! 💖</button>
+                <button class="btn-no" id="noBtn" onmouseover="dodgeButton()" onclick="dodgeButton()">Enggak 😝</button>
+            </div>
+            <div class="funny-hint" id="funnyHint"></div>
+        </div>
+
+        <!-- SLIDE 5: Perayaan Akhir -->
+        <div class="slide" id="slide-4">
+            <div class="illustration bounce-anim">
+                <svg viewBox="0 0 220 180" width="175" height="145">
+                    <circle cx="45" cy="55" r="14" fill="#a47148"/>
+                    <circle cx="95" cy="55" r="14" fill="#a47148"/>
+                    <circle cx="70" cy="85" r="36" fill="#bc8a5f"/>
+                    <circle cx="58" cy="80" r="4" fill="#2b190e"/>
+                    <circle cx="82" cy="80" r="4" fill="#2b190e"/>
+                    <ellipse cx="70" cy="92" rx="13" ry="10" fill="#faedcd"/>
+                    <circle cx="70" cy="89" r="4" fill="#432818"/>
+                    <ellipse cx="135" cy="40" rx="9" ry="26" fill="#fff" stroke="#ffccd5" stroke-width="2"/>
+                    <ellipse cx="165" cy="40" rx="9" ry="26" fill="#fff" stroke="#ffccd5" stroke-width="2"/>
+                    <circle cx="150" cy="85" r="35" fill="#fff" stroke="#ffccd5" stroke-width="2"/>
+                    <circle cx="138" cy="80" r="4" fill="#590d22"/>
+                    <circle cx="162" cy="80" r="4" fill="#590d22"/>
+                    <polygon points="147,89 153,89 150,93" fill="#ff758f"/>
+                    <path d="M110 25 C103 15, 90 18, 90 28 C90 38, 110 48, 110 48 C110 48, 130 38, 130 28 C130 18, 117 15, 110 25 Z" fill="#ff0a54" class="heartbeat-anim" style="transform-origin: 110px 32px;"/>
+                </svg>
+            </div>
+            <h1 id="title-4">Yeay! I Love You! 🎉❤️</h1>
+            <div class="message-box" id="msg-4"></div>
+            <button class="btn-primary" onclick="restartSlides()">Ulangi Dari Awal 🔄</button>
+        </div>
+    </div>
+
+    <!-- Modal Edit Pesan -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal-box">
+            <h2>✏️ Kustomisasi Pesan</h2>
+            <div class="form-group">
+                <label>Panggilan Pasangan (Slide 1)</label>
+                <input type="text" id="inputTitle0">
+            </div>
+            <div class="form-group">
+                <label>Pesan Slide 1 (Pembuka)</label>
+                <textarea rows="2" id="inputMsg0"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Pesan Slide 2 (Apresiasi)</label>
+                <textarea rows="2" id="inputMsg1"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Pesan Slide 3 (Gombalan Lucu)</label>
+                <textarea rows="2" id="inputMsg2"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Pertanyaan Slide 4</label>
+                <input type="text" id="inputMsg3">
+            </div>
+            <div class="form-group">
+                <label>Surat Cinta Akhir (Slide 5)</label>
+                <textarea rows="3" id="inputMsg4"></textarea>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-no" onclick="closeModal()">Batal</button>
+                <button class="btn-primary" style="padding: 10px 22px; font-size: 14px;" onclick="saveCustomMessages()">Simpan & Terapkan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menghubungkan ke file JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

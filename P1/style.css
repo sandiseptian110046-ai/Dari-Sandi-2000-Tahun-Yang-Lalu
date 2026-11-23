@@ -1,0 +1,372 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #ffe6eb 0%, #ffc2d1 50%, #ffb3c6 100%);
+    --card-bg: rgba(255, 255, 255, 0.92);
+    --primary: #ff4d6d;
+    --primary-hover: #c9184a;
+    --secondary: #ff8fa3;
+    --text-dark: #590d22;
+    --text-muted: #800f2f;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    color: var(--text-dark);
+}
+
+/* Latar Belakang Hati Melayang */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.heart-bg {
+    position: absolute;
+    bottom: -50px;
+    font-size: 24px;
+    animation: floatUp linear infinite;
+    opacity: 0.6;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.8);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Tombol Kontrol Atas (Musik & Edit) */
+.top-controls {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.icon-btn {
+    background: rgba(255, 255, 255, 0.85);
+    border: 2px solid var(--secondary);
+    color: var(--primary);
+    padding: 10px 16px;
+    border-radius: 50px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.icon-btn:hover {
+    transform: translateY(-2px);
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.3);
+}
+
+/* Kartu Utama */
+.card-container {
+    position: relative;
+    z-index: 10;
+    width: 90%;
+    max-width: 460px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 35px 28px;
+    box-shadow: 0 20px 50px rgba(128, 15, 47, 0.18), 0 0 0 6px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Indikator Slide */
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffccd5;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    width: 28px;
+    border-radius: 10px;
+    background: var(--primary);
+}
+
+/* Area Slide */
+.slide {
+    display: none;
+    animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.slide.active {
+    display: block;
+}
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Ilustrasi Karakter & Animasi Lucu */
+.illustration {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bounce-anim {
+    animation: bounceCute 2s infinite ease-in-out;
+}
+
+@keyframes bounceCute {
+    0%, 100% { transform: translateY(0) scale(1, 1); }
+    50% { transform: translateY(-12px) scale(0.97, 1.03); }
+}
+
+.wiggle-anim {
+    animation: wiggle 2.5s infinite ease-in-out;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(-4deg); }
+    50% { transform: rotate(4deg); }
+}
+
+.heartbeat-anim {
+    animation: heartbeat 1.3s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.12); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.08); }
+}
+
+/* Tipografi & Animasi Kata-Kata */
+h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 26px;
+    color: var(--primary);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.wave-text span {
+    display: inline-block;
+    animation: waveLetter 1.8s infinite ease-in-out;
+}
+
+@keyframes waveLetter {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+.message-box {
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: var(--text-dark);
+    min-height: 85px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 18px;
+    background-color: var(--primary);
+    animation: blink 0.7s infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Tombol Navigasi */
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary), #ff758f);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.35);
+    transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(255, 77, 109, 0.45);
+}
+
+.btn-primary:active {
+    transform: scale(0.96);
+}
+
+/* Area Interaktif Slide 4 */
+.choice-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    min-height: 90px;
+    position: relative;
+}
+
+.btn-no {
+    background: #e5e5e5;
+    color: #555;
+    border: none;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+}
+
+.funny-hint {
+    font-size: 13px;
+    color: var(--primary);
+    font-style: italic;
+    min-height: 20px;
+    margin-top: 8px;
+    font-weight: 700;
+}
+
+/* Modal Edit Pesan */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(89, 13, 34, 0.5);
+    backdrop-filter: blur(4px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    padding: 20px;
+}
+
+.modal-overlay.open {
+    display: flex;
+}
+
+.modal-box {
+    background: white;
+    width: 100%;
+    max-width: 440px;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 24px;
+    padding: 24px;
+    text-align: left;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.modal-box h2 {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--text-muted);
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ffccd5;
+    border-radius: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: var(--primary);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+/* Canvas Confetti */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99;
+}
